@@ -669,7 +669,7 @@ function AdminDashboard({ activeTab, demoUser }) {
         <div className="table-container">
           <table>
             <thead>
-              <tr><th>{t('matricule')}</th><th>{t('student_name')}</th><th>Email</th><th>Role</th><th>Assignments</th></tr>
+              <tr><th>{t('matricule')}</th><th>{t('name')}</th><th>Email</th><th>Role</th><th>Assignments</th></tr>
             </thead>
             <tbody>
               {students.map(s => {
