@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Moon, Sun, LogOut, X, Settings } from 'lucide-react';
+import { Moon, Sun, LogOut, X, Settings, Menu } from 'lucide-react';
 import logo from '../assets/logo.png';
 import api from '../api';
 import { useLanguage } from '../context/LanguageContext';
 
-function TopBar({ user, onLogout, theme, setTheme }) {
+function TopBar({ user, onLogout, theme, setTheme, toggleSidebar }) {
   const { lang, setLang, t } = useLanguage();
   const [showSettingsModal, setShowSettingsModal] = useState(false);
   const [oldPassword, setOldPassword] = useState('');
@@ -93,11 +93,28 @@ function TopBar({ user, onLogout, theme, setTheme }) {
 
   return (
     <div className="demo-topbar">
-      {/* Brand / Logo */}
-      <div 
-        className="logo-container" 
-        onClick={() => window.location.href = '/'}
-      >
+      {/* Brand / Logo & Mobile Menu */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <button 
+          className="mobile-menu-btn"
+          onClick={toggleSidebar}
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: 'var(--text-main)',
+            cursor: 'pointer',
+            padding: '0.4rem',
+            display: 'none', // Hidden by default, shown via CSS on mobile
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <Menu size={24} />
+        </button>
+        <div 
+          className="logo-container" 
+          onClick={() => window.location.href = '/'}
+        >
         <img 
           src={logo} 
           alt="EMSI" 
@@ -127,6 +144,7 @@ function TopBar({ user, onLogout, theme, setTheme }) {
             {t('login_subtitle')}
           </span>
         </div>
+      </div>
       </div>
       
       <div style={{ flex: 1 }} />

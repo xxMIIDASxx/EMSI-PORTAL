@@ -2,7 +2,7 @@ import React from 'react';
 import { Calendar, Bell, FileText, UserCheck, ShieldAlert, GraduationCap, LayoutDashboard, FileArchive, UserPlus } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-function Sidebar({ user, currentRole, activeTab, setActiveTab }) {
+function Sidebar({ user, currentRole, activeTab, setActiveTab, isOpen, closeSidebar }) {
   const { t } = useLanguage();
   
   const getNavItems = () => {
@@ -45,7 +45,13 @@ function Sidebar({ user, currentRole, activeTab, setActiveTab }) {
   const userName = user ? `${user.first_name} ${user.last_name}` : currentRole;
 
   return (
-    <div className="sidebar">
+    <>
+      {/* Mobile Backdrop */}
+      <div 
+        className={`sidebar-backdrop ${isOpen ? 'show' : ''}`}
+        onClick={closeSidebar}
+      />
+      <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       {/* User profile card */}
       <div style={{ padding: '0 1.25rem 1.25rem', marginBottom: '0.5rem' }}>
         <div style={{ 
@@ -187,7 +193,8 @@ function Sidebar({ user, currentRole, activeTab, setActiveTab }) {
           &copy; 2026 PORTAL Team. v2.4.0
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

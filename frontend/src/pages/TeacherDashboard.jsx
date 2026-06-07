@@ -520,7 +520,7 @@ function TeacherDashboard({ activeTab, demoUser }) {
               <p style={{ color: 'var(--text-muted)' }}>You have no classes assigned.</p>
             </div>
           ) : hasSchedule ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem' }}>
+            <div className="grid-responsive-5" style={{ gap: '1rem' }}>
               {days.map((day, idx) => (
                 <div key={day} style={{ border: `1px solid ${dayPanelBorders[idx]}`, borderTop: `3px solid ${dayBorders[idx]}`, borderRadius: 'var(--radius-md)', padding: '1rem', background: dayColors[idx], minHeight: '150px' }}>
                   <h4 style={{ textAlign: 'center', marginBottom: '1rem', color: dayBorders[idx], fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{day}</h4>
@@ -609,7 +609,7 @@ function TeacherDashboard({ activeTab, demoUser }) {
             <UserCheck size={28} className="text-primary" /> {t('mark_presence')}
           </h2>
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
+          <div className="grid-responsive-2" style={{ gap: '2rem', marginBottom: '2rem' }}>
             <div className="input-group">
               <label className="input-label">{t('select_module')}</label>
               <select className="input-field" value={selectedSession?.id || ''} onChange={e => handleSelectSession(parseInt(e.target.value))}>

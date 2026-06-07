@@ -16,6 +16,8 @@ function App() {
     return localStorage.getItem('theme') || 'light';
   });
 
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
@@ -56,12 +58,18 @@ function App() {
         onLogout={handleLogout}
         theme={theme} 
         setTheme={setTheme}
+        toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
       />
       <Sidebar 
         user={user} 
         currentRole={user.role} 
         activeTab={activeTab} 
-        setActiveTab={setActiveTab}
+        setActiveTab={(tab) => {
+          setActiveTab(tab);
+          setIsSidebarOpen(false); // Close sidebar on mobile when navigating
+        }}
+        isOpen={isSidebarOpen}
+        closeSidebar={() => setIsSidebarOpen(false)}
       />
       
       <main className="main-content">

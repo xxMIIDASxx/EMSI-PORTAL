@@ -654,3 +654,57 @@ td:last-child {
   opacity: 0.85;
   transform: scale(1.02);
 }
+
+/* ================================================
+   MOBILE MENU & RESPONSIVE GRIDS
+   ================================================ */
+
+.sidebar-backdrop {
+  position: fixed;
+  top: var(--topbar-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 30;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-backdrop.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.grid-responsive-2,
+.grid-responsive-3,
+.grid-responsive-4,
+.grid-responsive-5 {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-responsive-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-responsive-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-responsive-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-responsive-5 { grid-template-columns: repeat(5, 1fr); }
+
+@media (max-width: 1024px) {
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+  
+  .grid-responsive-3,
+  .grid-responsive-4,
+  .grid-responsive-5 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-responsive-2 {
+    grid-template-columns: 1fr;
+  }
+}

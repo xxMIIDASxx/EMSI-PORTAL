@@ -144,7 +144,7 @@ function StudentDashboard({ activeTab, demoUser }) {
         </div>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+      <div className="grid-responsive-3" style={{ gap: '1rem' }}>
         <div className="glass-panel" style={{ textAlign: 'center', padding: '1.5rem' }}>
           <p style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--danger)' }}>{absences.filter(a => !a.is_present).length}</p>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>{t('absences')}</p>
@@ -193,7 +193,7 @@ function StudentDashboard({ activeTab, demoUser }) {
             <CalendarIcon size={22} className="text-primary" /> My Weekly Schedule
           </h2>
           {hasSchedule ? (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.75rem' }}>
+            <div className="grid-responsive-5" style={{ gap: '0.75rem' }}>
               {days.map((day, idx) => (
                 <div key={day} style={{ border: `1px solid ${dayPanelBorders[idx]}`, borderTop: `3px solid ${dayBorders[idx]}`, borderRadius: 'var(--radius-md)', padding: '0.85rem', background: dayColors[idx], minHeight: '120px' }}>
                   <h4 style={{ textAlign: 'center', marginBottom: '0.75rem', color: dayBorders[idx], fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.06em', fontWeight: 700 }}>{day}</h4>
@@ -473,7 +473,7 @@ function StudentDashboard({ activeTab, demoUser }) {
   };
 
   const renderDocuments = () => (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+    <div className="grid-responsive-2" style={{ gap: '1.5rem' }}>
       <div className="glass-panel">
         <h2 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '1.35rem', fontWeight: 800 }}>
           <FileText size={22} className="text-primary" /> Request Document
