@@ -124,7 +124,7 @@ function TopBar({ user, onLogout, theme, setTheme, toggleSidebar }) {
             transition: 'transform 0.3s ease'
           }} 
         />
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="hide-on-mobile" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <span style={{ 
             fontWeight: 800, 
             fontSize: '1.25rem', 
@@ -134,7 +134,7 @@ function TopBar({ user, onLogout, theme, setTheme, toggleSidebar }) {
           }}>
             {t('login_title')}
           </span>
-          <span className="hide-on-mobile" style={{ 
+          <span style={{ 
             fontSize: '0.72rem', 
             color: 'var(--text-muted)', 
             fontWeight: 500, 
