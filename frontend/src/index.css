@@ -691,6 +691,14 @@ td:last-child {
 .grid-responsive-4 { grid-template-columns: repeat(4, 1fr); }
 .grid-responsive-5 { grid-template-columns: repeat(5, 1fr); }
 
+.modal-overlay {
+  padding: 2rem;
+}
+
+.modal-content-padding {
+  padding: 1.75rem;
+}
+
 @media (max-width: 1024px) {
   .mobile-menu-btn {
     display: flex !important;
@@ -706,5 +714,14 @@ td:last-child {
 @media (max-width: 768px) {
   .grid-responsive-2 {
     grid-template-columns: 1fr;
+  }
+  .hide-on-mobile {
+    display: none !important;
+  }
+  .modal-overlay {
+    padding: 1rem;
+  }
+  .modal-content-padding {
+    padding: 1rem;
   }
 }

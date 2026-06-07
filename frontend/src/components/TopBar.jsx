@@ -134,7 +134,7 @@ function TopBar({ user, onLogout, theme, setTheme, toggleSidebar }) {
           }}>
             {t('login_title')}
           </span>
-          <span style={{ 
+          <span className="hide-on-mobile" style={{ 
             fontSize: '0.72rem', 
             color: 'var(--text-muted)', 
             fontWeight: 500, 
@@ -235,7 +235,7 @@ function TopBar({ user, onLogout, theme, setTheme, toggleSidebar }) {
                 {((user.first_name?.[0] || '') + (user.last_name?.[0] || '')).toUpperCase()}
               </div>
             )}
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className="hide-on-mobile" style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ 
                 fontSize: '0.82rem', 
                 fontWeight: 700, 
@@ -306,11 +306,11 @@ function TopBar({ user, onLogout, theme, setTheme, toggleSidebar }) {
 
       {/* Settings Modal */}
       {showSettingsModal && (
-        <div style={{
+        <div className="modal-overlay" style={{
           position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
           background: 'rgba(0,0,0,0.6)', zIndex: 9999,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backdropFilter: 'blur(8px)', padding: '2rem'
+          backdropFilter: 'blur(8px)'
         }}>
           <div className="glass-panel" style={{ 
             width: '100%', maxWidth: '500px', padding: 0, position: 'relative', overflow: 'hidden',
@@ -342,7 +342,7 @@ function TopBar({ user, onLogout, theme, setTheme, toggleSidebar }) {
               </button>
             </div>
 
-            <div style={{ padding: '1.75rem' }}>
+            <div className="modal-content-padding">
               {/* Profile Picture Upload */}
               <div style={{ marginBottom: '1.75rem', textAlign: 'center' }}>
                 <h3 style={{ fontSize: '0.9rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--text-main)' }}>
